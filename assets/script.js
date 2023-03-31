@@ -1,6 +1,10 @@
 // Assignment code here
+var lowCase = "abcdefghijklmnopqrstuvwxyz"
 
+var upCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
+var num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+var symbols ="!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
