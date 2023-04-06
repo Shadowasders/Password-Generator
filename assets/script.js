@@ -3,7 +3,7 @@
 var lowCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var Num = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var Symbols = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~", "\""];
+var Symbols = ["!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~", "\""];
 var minLength = 8;
 var maxLength = 128;
 
@@ -13,6 +13,7 @@ function generatePassword() {
   var protoPass = [];
   var lengthConfirm = prompt("How long would you like your password to be? \nIt must be between 8 and 128 characters!");
   if (!lengthConfirm) {
+    //setting conditions for when users enter non numbers, lengths that are to short or too long, and if they cancel without entering anything.
     alert("No problem! Come back soon!")
     return;
   } else if (lengthConfirm < minLength || lengthConfirm > maxLength) {
