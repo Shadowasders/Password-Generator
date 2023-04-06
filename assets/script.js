@@ -11,11 +11,13 @@ function generatePassword() {
   //setting a empty array for the mixed pools
   var randomPassword = [];
   var protoPass = [];
-  var lengthConfirm = prompt("How long would you like your password to be? \n It must be between 8 and 128 characters!");
+  var lengthConfirm = prompt("How long would you like your password to be? \nIt must be between 8 and 128 characters!");
   if (lengthConfirm < minLength || lengthConfirm > maxLength) {
     alert("Password must be between 8 and 128 characters!");
     return;
-  
+  } else if (isNaN(lengthConfirm)) {
+    alert("The length must be a number!")
+    return;
   } else {
     alert("Great!");
   }
