@@ -12,7 +12,10 @@ function generatePassword() {
   var randomPassword = [];
   var protoPass = [];
   var lengthConfirm = prompt("How long would you like your password to be? \nIt must be between 8 and 128 characters!");
-  if (lengthConfirm < minLength || lengthConfirm > maxLength) {
+  if (!lengthConfirm) {
+    alert("No problem! Come back soon!")
+    return;
+  } else if (lengthConfirm < minLength || lengthConfirm > maxLength) {
     alert("Password must be between 8 and 128 characters!");
     return;
   } else if (isNaN(lengthConfirm)) {
