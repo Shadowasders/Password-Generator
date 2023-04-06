@@ -1,48 +1,50 @@
 // Assignment code here
+//setting all the different pools of characters for the passwords
 var lowCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var Num = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var Symbols = [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
+var Symbols = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~", "\""];
 var minLength = 8;
 var maxLength = 128;
-var protoPass = [];
-var randomPassword = [];
+
 function generatePassword() {
-  var lengthConfirm = prompt("Choose a length for your password \nMust be between 8 and 128 numbers!");
+  //setting a empty array for the mixed pools
+  var randomPassword = [];
+  var protoPass = [];
+  var lengthConfirm = prompt("How long would you like your password to be? \n It must be between 8 and 128 characters!");
   if (lengthConfirm < minLength || lengthConfirm > maxLength) {
     alert("Password must be between 8 and 128 characters!");
     return;
+  
   } else {
     alert("Great!");
+  }
+    //setting up the actual booleans to set the pools together
     var upperCase = confirm("Do you want to use Uppercase Letters?")
     var lowerCase = confirm("Do you want to use Lowercase Letters?")
     var numbers = confirm("Do you want to use numbers?")
     var specChara = confirm("Do you want to use Special Symbols?")
-    for (i = 0; i < lengthConfirm; i++) {
       if (upperCase) {
-        protoPass.push(upCase);
+        protoPass = protoPass.concat(upCase);
       }
       if (lowerCase) {
-        protoPass.push(lowCase);
+        protoPass = protoPass.concat(lowCase);
       }
       if (numbers) {
-        protoPass.push(Num);
+        protoPass = protoPass.concat(Num);
       }
       if (specChara) {
-        protoPass.push(Symbols);
-      }
-    }
+        protoPass = protoPass.concat(Symbols);
+      }//to randomize the choices
     for (i = 0; i < lengthConfirm; i++) {
-      var random = math.floor(math.random() * protoPass.length);
+      var random = Math.floor(Math.random() * protoPass.length);
       var randomArray = protoPass[random];
       randomPassword.push(randomArray);
-      return randomPassword;
     }
     randomPassword = randomPassword.join('');
     return randomPassword;
   }
-  
-}
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
