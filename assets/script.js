@@ -41,6 +41,10 @@ function generatePassword() {
       }
       if (specChara) {
         protoPass = protoPass.concat(Symbols);
+      } //failsafe incase someone says no to every pool of choices.
+      if (protoPass = []){
+        alert("You must enter something!")
+        return;
       }//to randomize the choices
     for (i = 0; i < lengthConfirm; i++) {
       var random = Math.floor(Math.random() * protoPass.length);
